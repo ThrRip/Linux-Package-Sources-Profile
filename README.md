@@ -10,8 +10,7 @@ This repo provided some useful profiles for Linux distros. Now you can get the p
 2. Scroll down and you can see, there are so many files in the 'Artifacts' section
 3. According to the region and OS where your PC or server is located, choose the one that is most suitable for you
 4. Right-click it and copy its link, use `curl` or `wget` to download it to your target machine
-5. If you are using Debian or Ubuntu, `mv` it to `/etc/apt/`
-   If you are using CentOS, `mv` it to `/etc/yum.repos.d/` and uncompress it with `unzip`
+5. If you are using Debian or Ubuntu, `mv` it to `/etc/apt/`. If you are using CentOS, `mv` it to `/etc/yum.repos.d/` and uncompress it with `unzip`
 6. Run `apt update` for Debian or Ubuntu and `yum clean all && yum makecache` for CentOS
 Enjoy!
 
