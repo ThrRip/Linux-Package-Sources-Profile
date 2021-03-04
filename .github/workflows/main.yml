@@ -10,9 +10,9 @@ on:
 
 jobs:
 
-  checkout:
-    
-    name: Checkout Repository
+  build-centos:
+
+    name: Build CentOS YUM & DNF Repos Archive File
 
     runs-on: ubuntu-latest
 
@@ -22,16 +22,6 @@ jobs:
         uses: actions/checkout@v2
         with:
           ref: master
-
-  build-centos:
-
-    name: Build CentOS YUM & DNF Repos Archive File
-
-    runs-on: ubuntu-latest
-
-    needs: checkout
-
-    steps:
 
       - name: Build yum-repos.centos-7.baseurl.default Archive File
         run: |
@@ -215,6 +205,12 @@ jobs:
           tar -czvf targets/dnf-repos.centos-8.mirrorlist.tar.gz CentOS-*.repo
           tar -czvf targets/dnf-repos.centos-8.mirrorlist.epel.tar.gz CentOS-*.repo epel*.repo
 
+      - name: Upload Full Artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: linux-poackages-sources-profile.full
+          path: .
+
   deliver-centos:
 
     name: Deliver CentOS YUM & DNF Repos Archive File
@@ -225,290 +221,295 @@ jobs:
 
     steps:
 
+      - name: Download Full Artifact
+        uses: actions/download-artifact@v2
+        with:
+          name: linux-poackages-sources-profile.full
+
       - name: Deliver yum-repos.centos-7.baseurl.default Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.default.tar.gz
           path: yum-repos.centos-7/baseurl/default/targets/yum-repos.centos-7.baseurl.default.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.default.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.default.epel.tar.gz
           path: yum-repos.centos-7/baseurl/default/targets/yum-repos.centos-7.baseurl.default.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-north Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-north.tar.gz
           path: yum-repos.centos-7/baseurl/cn-north/targets/yum-repos.centos-7.baseurl.cn-north.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-north.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-north.epel.tar.gz
           path: yum-repos.centos-7/baseurl/cn-north/targets/yum-repos.centos-7.baseurl.default.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-south Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-south.tar.gz
           path: yum-repos.centos-7/baseurl/cn-south/targets/yum-repos.centos-7.baseurl.cn-south.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-south.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-south.epel.tar.gz
           path: yum-repos.centos-7/baseurl/cn-south/targets/yum-repos.centos-7.baseurl.cn-south.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-west Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-west.tar.gz
           path: yum-repos.centos-7/baseurl/cn-west/targets/yum-repos.centos-7.baseurl.cn-west.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-west.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-west.epel.tar.gz
           path: yum-repos.centos-7/baseurl/cn-west/targets/yum-repos.centos-7.baseurl.cn-west.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-east Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-east.tar.gz
           path: yum-repos.centos-7/baseurl/cn-east/targets/yum-repos.centos-7.baseurl.cn-east.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-east.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-east.epel.tar.gz
           path: yum-repos.centos-7/baseurl/cn-east/targets/yum-repos.centos-7.baseurl.cn-east.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-hk Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-hk.tar.gz
           path: yum-repos.centos-7/baseurl/cn-hk/targets/yum-repos.centos-7.baseurl.cn-hk.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-hk.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-hk.epel.tar.gz
           path: yum-repos.centos-7/baseurl/cn-hk/targets/yum-repos.centos-7.baseurl.cn-hk.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.tw Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.tw.tar.gz
           path: yum-repos.centos-7/baseurl/tw/targets/yum-repos.centos-7.baseurl.tw.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.tw.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.tw.epel.tar.gz
           path: yum-repos.centos-7/baseurl/tw/targets/yum-repos.centos-7.baseurl.tw.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.jp Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.jp.tar.gz
           path: yum-repos.centos-7/baseurl/jp/targets/yum-repos.centos-7.baseurl.jp.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.jp.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.jp.epel.tar.gz
           path: yum-repos.centos-7/baseurl/jp/targets/yum-repos.centos-7.baseurl.jp.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.sg Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.sg.tar.gz
           path: yum-repos.centos-7/baseurl/sg/targets/yum-repos.centos-7.baseurl.sg.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.sg.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.sg.epel.tar.gz
           path: yum-repos.centos-7/baseurl/sg/targets/yum-repos.centos-7.baseurl.sg.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.eu Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.eu.tar.gz
           path: yum-repos.centos-7/baseurl/eu/targets/yum-repos.centos-7.baseurl.eu.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.eu.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.eu.epel.tar.gz
           path: yum-repos.centos-7/baseurl/eu/targets/yum-repos.centos-7.baseurl.eu.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.us-west Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.us-west.tar.gz
           path: yum-repos.centos-7/baseurl/us-west/targets/yum-repos.centos-7.baseurl.us-west.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.us-west.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.us-west.epel.tar.gz
           path: yum-repos.centos-7/baseurl/us-west/targets/yum-repos.centos-7.baseurl.us-west.epel.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.us-east Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.us-east.tar.gz
           path: yum-repos.centos-7/baseurl/us-east/targets/yum-repos.centos-7.baseurl.us-east.tar.gz
 
       - name: Deliver yum-repos.centos-7.baseurl.us-east.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.us-east.epel.tar.gz
           path: yum-repos.centos-7/baseurl/us-east/targets/yum-repos.centos-7.baseurl.us-east.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.default Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.default.tar.gz
           path: dnf-repos.centos-8/baseurl/default/targets/dnf-repos.centos-8.baseurl.default.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.default.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.default.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/default/targets/dnf-repos.centos-8.baseurl.default.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-north Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-north.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-north/targets/dnf-repos.centos-8.baseurl.cn-north.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-north.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-north.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-north/targets/dnf-repos.centos-8.baseurl.default.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-south Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-south.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-south/targets/dnf-repos.centos-8.baseurl.cn-south.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-south.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-south.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-south/targets/dnf-repos.centos-8.baseurl.cn-south.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-west Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-west.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-west/targets/dnf-repos.centos-8.baseurl.cn-west.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-west.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-west.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-west/targets/dnf-repos.centos-8.baseurl.cn-west.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-east Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-east.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-east/targets/dnf-repos.centos-8.baseurl.cn-east.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-east.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-east.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-east/targets/dnf-repos.centos-8.baseurl.cn-east.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-hk Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-hk.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-hk/targets/dnf-repos.centos-8.baseurl.cn-hk.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-hk.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-hk.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/cn-hk/targets/dnf-repos.centos-8.baseurl.cn-hk.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.tw Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.tw.tar.gz
           path: dnf-repos.centos-8/baseurl/tw/targets/dnf-repos.centos-8.baseurl.tw.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.tw.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.tw.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/tw/targets/dnf-repos.centos-8.baseurl.tw.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.jp Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.jp.tar.gz
           path: dnf-repos.centos-8/baseurl/jp/targets/dnf-repos.centos-8.baseurl.jp.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.jp.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.jp.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/jp/targets/dnf-repos.centos-8.baseurl.jp.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.sg Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.sg.tar.gz
           path: dnf-repos.centos-8/baseurl/sg/targets/dnf-repos.centos-8.baseurl.sg.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.sg.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.sg.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/sg/targets/dnf-repos.centos-8.baseurl.sg.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.eu Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.eu.tar.gz
           path: dnf-repos.centos-8/baseurl/eu/targets/dnf-repos.centos-8.baseurl.eu.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.eu.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.eu.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/eu/targets/dnf-repos.centos-8.baseurl.eu.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.us-west Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.us-west.tar.gz
           path: dnf-repos.centos-8/baseurl/us-west/targets/dnf-repos.centos-8.baseurl.us-west.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.us-west.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.us-west.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/us-west/targets/dnf-repos.centos-8.baseurl.us-west.epel.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.us-east Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.us-east.tar.gz
           path: dnf-repos.centos-8/baseurl/us-east/targets/dnf-repos.centos-8.baseurl.us-east.tar.gz
 
       - name: Deliver dnf-repos.centos-8.baseurl.us-east.epel Archive File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.us-east.epel.tar.gz
           path: dnf-repos.centos-8/baseurl/us-east/targets/dnf-repos.centos-8.baseurl.us-east.epel.tar.gz
@@ -519,222 +520,225 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    needs: checkout
-
     steps:
 
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
       - name: Deliver sources.debian-8.default List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.default
           path: apt-sources.debian/default/sources.debian-8.list
 
       - name: Deliver sources.debian-9.default List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.default
           path: apt-sources.debian/default/sources.debian-9.list
 
       - name: Deliver sources.debian-10.default List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.default
           path: apt-sources.debian/default/sources.debian-10.list
 
       - name: Deliver sources.debian-8.cn-north List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.cn-north
           path: apt-sources.debian/cn-north/sources.debian-8.list
 
       - name: Deliver sources.debian-9.cn-north List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.cn-north
           path: apt-sources.debian/cn-north/sources.debian-9.list
 
       - name: Deliver sources.debian-10.cn-north List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.cn-north
           path: apt-sources.debian/cn-north/sources.debian-10.list
 
       - name: Deliver sources.debian-8.cn-south List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.cn-south
           path: apt-sources.debian/cn-south/sources.debian-8.list
 
       - name: Deliver sources.debian-9.cn-south List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.cn-south
           path: apt-sources.debian/cn-south/sources.debian-9.list
 
       - name: Deliver sources.debian-10.cn-south List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.cn-south
           path: apt-sources.debian/cn-south/sources.debian-10.list
 
       - name: Deliver sources.debian-8.cn-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.cn-west
           path: apt-sources.debian/cn-west/sources.debian-8.list
 
       - name: Deliver sources.debian-9.cn-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.cn-west
           path: apt-sources.debian/cn-west/sources.debian-9.list
 
       - name: Deliver sources.debian-10.cn-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.cn-west
           path: apt-sources.debian/cn-west/sources.debian-10.list
 
       - name: Deliver sources.debian-8.cn-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.cn-east
           path: apt-sources.debian/cn-east/sources.debian-8.list
 
       - name: Deliver sources.debian-9.cn-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.cn-east
           path: apt-sources.debian/cn-east/sources.debian-9.list
 
       - name: Deliver sources.debian-10.cn-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.cn-east
           path: apt-sources.debian/cn-east/sources.debian-10.list
 
       - name: Deliver sources.debian-8.cn-hk List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.cn-hk
           path: apt-sources.debian/cn-hk/sources.debian-8.list
 
       - name: Deliver sources.debian-9.cn-hk List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.cn-hk
           path: apt-sources.debian/cn-hk/sources.debian-9.list
 
       - name: Deliver sources.debian-10.cn-hk List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.cn-hk
           path: apt-sources.debian/cn-hk/sources.debian-10.list
 
       - name: Deliver sources.debian-8.tw List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.tw
           path: apt-sources.debian/tw/sources.debian-8.list
 
       - name: Deliver sources.debian-9.tw List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.tw
           path: apt-sources.debian/tw/sources.debian-9.list
 
       - name: Deliver sources.debian-10.tw List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.tw
           path: apt-sources.debian/tw/sources.debian-10.list
 
       - name: Deliver sources.debian-8.jp List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.jp
           path: apt-sources.debian/jp/sources.debian-8.list
 
       - name: Deliver sources.debian-9.jp List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.jp
           path: apt-sources.debian/jp/sources.debian-9.list
 
       - name: Deliver sources.debian-10.jp List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.jp
           path: apt-sources.debian/jp/sources.debian-10.list
 
       - name: Deliver sources.debian-8.sg List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.sg
           path: apt-sources.debian/sg/sources.debian-8.list
 
       - name: Deliver sources.debian-9.sg List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.sg
           path: apt-sources.debian/sg/sources.debian-9.list
 
       - name: Deliver sources.debian-10.sg List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.sg
           path: apt-sources.debian/sg/sources.debian-10.list
 
       - name: Deliver sources.debian-8.eu List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.eu
           path: apt-sources.debian/eu/sources.debian-8.list
 
       - name: Deliver sources.debian-9.eu List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.eu
           path: apt-sources.debian/eu/sources.debian-9.list
 
       - name: Deliver sources.debian-10.eu List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.eu
           path: apt-sources.debian/eu/sources.debian-10.list
 
       - name: Deliver sources.debian-8.us-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.us-west
           path: apt-sources.debian/us-west/sources.debian-8.list
 
       - name: Deliver sources.debian-9.us-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.us-west
           path: apt-sources.debian/us-west/sources.debian-9.list
 
       - name: Deliver sources.debian-10.us-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.us-west
           path: apt-sources.debian/us-west/sources.debian-10.list
 
       - name: Deliver sources.debian-8.us-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-8.us-east
           path: apt-sources.debian/us-east/sources.debian-8.list
 
       - name: Deliver sources.debian-9.us-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-9.us-east
           path: apt-sources.debian/us-east/sources.debian-9.list
 
       - name: Deliver sources.debian-10.us-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.debian-10.us-east
           path: apt-sources.debian/us-east/sources.debian-10.list
@@ -745,222 +749,225 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    needs: checkout
-
     steps:
 
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+        with:
+          ref: master
+
       - name: Deliver sources.ubuntu-16.04-lts.default List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.default
           path: apt-sources.ubuntu/default/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.default List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.default
           path: apt-sources.ubuntu/default/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.default List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.default
           path: apt-sources.ubuntu/default/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.cn-north List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.cn-north
           path: apt-sources.ubuntu/cn-north/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.cn-north List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.cn-north
           path: apt-sources.ubuntu/cn-north/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.cn-north List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.cn-north
           path: apt-sources.ubuntu/cn-north/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.cn-south List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.cn-south
           path: apt-sources.ubuntu/cn-south/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.cn-south List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.cn-south
           path: apt-sources.ubuntu/cn-south/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.cn-south List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.cn-south
           path: apt-sources.ubuntu/cn-south/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.cn-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.cn-west
           path: apt-sources.ubuntu/cn-west/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.cn-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.cn-west
           path: apt-sources.ubuntu/cn-west/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.cn-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.cn-west
           path: apt-sources.ubuntu/cn-west/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.cn-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.cn-east
           path: apt-sources.ubuntu/cn-east/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.cn-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.cn-east
           path: apt-sources.ubuntu/cn-east/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.cn-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.cn-east
           path: apt-sources.ubuntu/cn-east/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.cn-hk List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.cn-hk
           path: apt-sources.ubuntu/cn-hk/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.cn-hk List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.cn-hk
           path: apt-sources.ubuntu/cn-hk/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.cn-hk List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.cn-hk
           path: apt-sources.ubuntu/cn-hk/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.tw List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.tw
           path: apt-sources.ubuntu/tw/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.tw List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.tw
           path: apt-sources.ubuntu/tw/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.tw List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.tw
           path: apt-sources.ubuntu/tw/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.jp List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.jp
           path: apt-sources.ubuntu/jp/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.jp List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.jp
           path: apt-sources.ubuntu/jp/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.jp List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.jp
           path: apt-sources.ubuntu/jp/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.sg List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.sg
           path: apt-sources.ubuntu/sg/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.sg List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.sg
           path: apt-sources.ubuntu/sg/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.sg List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.sg
           path: apt-sources.ubuntu/sg/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.eu List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.eu
           path: apt-sources.ubuntu/eu/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.eu List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.eu
           path: apt-sources.ubuntu/eu/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.eu List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.eu
           path: apt-sources.ubuntu/eu/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.us-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.us-west
           path: apt-sources.ubuntu/us-west/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.us-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.us-west
           path: apt-sources.ubuntu/us-west/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.us-west List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.us-west
           path: apt-sources.ubuntu/us-west/sources.ubuntu-20.04-lts.list
 
       - name: Deliver sources.ubuntu-16.04-lts.us-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-16.04-lts.us-east
           path: apt-sources.ubuntu/us-east/sources.ubuntu-16.04-lts.list
 
       - name: Deliver sources.ubuntu-18.04-lts.us-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-18.04-lts.us-east
           path: apt-sources.ubuntu/us-east/sources.ubuntu-18.04-lts.list
 
       - name: Deliver sources.ubuntu-20.04-lts.us-east List File
-        uses: actions/upload-artifact@master
+        uses: actions/upload-artifact@v2
         with:
           name: sources.ubuntu-20.04-lts.us-east
           path: apt-sources.ubuntu/us-east/sources.ubuntu-20.04-lts.list
