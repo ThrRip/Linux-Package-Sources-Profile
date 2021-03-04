@@ -1,0 +1,10 @@
+deb http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic main restricted multiverse universe
+deb-src http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic main restricted multiverse universe
+deb http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic-updates main restricted multiverse universe
+deb-src http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic-updates main restricted multiverse universe
+deb http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic-backports main restricted multiverse universe
+deb-src http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic-backports main restricted multiverse universe
+deb http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic-security main restricted multiverse universe
+deb-src http://mirror.fra10.de.leaseweb.net/ubuntu/ bionic-security main restricted multiverse universe
+deb http://archive.canonical.com/ubuntu bionic partner
+deb-src http://archive.canonical.com/ubuntu bionic partner

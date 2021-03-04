@@ -1,0 +1,15 @@
+#
+
+# deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 NETINST Binary-1 20130504-14:43]/ jessie main
+
+#deb cdrom:[Debian GNU/Linux 7.0.0 _Wheezy_ - Official amd64 NETINST Binary-1 20130504-14:43]/ jessie main
+
+deb http://mirror01.idc.hinet.com/debian/ jessie main
+deb-src http://mirror01.idc.hinet.com/debian/ jessie main
+
+deb http://security.debian.org/ jessie/updates main
+deb-src http://security.debian.org/ jessie/updates main
+
+# jessie-updates, previously known as 'volatile'
+deb http://mirror01.idc.hinet.com/debian/ jessie-updates main
+deb-src http://mirror01.idc.hinet.com/debian/ jessie-updates main

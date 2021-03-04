@@ -1,0 +1,15 @@
+#
+
+# deb cdrom:[Debian GNU/Linux 9.1.0 _Stretch_ - Official amd64 NETINST 20170722-11:28]/ stretch main
+
+#deb cdrom:[Debian GNU/Linux 9.1.0 _Stretch_ - Official amd64 NETINST 20170722-11:28]/ stretch main
+
+deb http://mirror.fra10.de.leaseweb.net/debian/ stretch main
+deb-src http://mirror.fra10.de.leaseweb.net/debian/ stretch main
+
+deb http://security.debian.org/debian-security stretch/updates main
+deb-src http://security.debian.org/debian-security stretch/updates main
+
+# stretch-updates, previously known as 'volatile'
+deb http://mirror.fra10.de.leaseweb.net/debian/ stretch-updates main
+deb-src http://mirror.fra10.de.leaseweb.net/debian/ stretch-updates main

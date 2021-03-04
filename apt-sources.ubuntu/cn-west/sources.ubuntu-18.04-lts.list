@@ -1,0 +1,10 @@
+deb http://mirrors.cqu.edu.cn/ubuntu/ bionic main restricted multiverse universe
+deb-src http://mirrors.cqu.edu.cn/ubuntu/ bionic main restricted multiverse universe
+deb http://mirrors.cqu.edu.cn/ubuntu/ bionic-updates main restricted multiverse universe
+deb-src http://mirrors.cqu.edu.cn/ubuntu/ bionic-updates main restricted multiverse universe
+deb http://mirrors.cqu.edu.cn/ubuntu/ bionic-backports main restricted multiverse universe
+deb-src http://mirrors.cqu.edu.cn/ubuntu/ bionic-backports main restricted multiverse universe
+deb http://mirrors.cqu.edu.cn/ubuntu/ bionic-security main restricted multiverse universe
+deb-src http://mirrors.cqu.edu.cn/ubuntu/ bionic-security main restricted multiverse universe
+deb http://archive.canonical.com/ubuntu bionic partner
+deb-src http://archive.canonical.com/ubuntu bionic partner

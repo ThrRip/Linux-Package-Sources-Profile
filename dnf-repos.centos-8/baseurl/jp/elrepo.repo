@@ -1,0 +1,39 @@
+### Name: ELRepo.org Community Enterprise Linux Repository for el8
+### URL: http://elrepo.org/
+
+[elrepo]
+name=ELRepo.org Community Enterprise Linux Repository - el8
+baseurl=http://ftp.ne.jp/Linux/RPMS/elrepo/elrepo/el8/$basearch/
+#mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo.el8
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+protect=0
+
+[elrepo-testing]
+name=ELRepo.org Community Enterprise Linux Testing Repository - el8
+baseurl=http://ftp.ne.jp/Linux/RPMS/elrepo/testing/el8/$basearch/
+#mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-testing.el8
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+protect=0
+
+[elrepo-kernel]
+name=ELRepo.org Community Enterprise Linux Kernel Repository - el8
+baseurl=http://ftp.ne.jp/Linux/RPMS/elrepo/kernel/el8/$basearch/
+#mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-kernel.el8
+enabled=1
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+protect=0
+includepkgs=kernel* kernel-ml* perf* python3-perf* bpftool*
+
+[elrepo-extras]
+name=ELRepo.org Community Enterprise Linux Extras Repository - el8
+baseurl=http://ftp.ne.jp/Linux/RPMS/elrepo/extras/el8/$basearch/
+#mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-extras.el8
+enabled=0
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-elrepo.org
+protect=0

@@ -1,0 +1,10 @@
+deb http://download.nus.edu.sg/mirror/ubuntu/ bionic main restricted multiverse universe
+deb-src http://download.nus.edu.sg/mirror/ubuntu/ bionic main restricted multiverse universe
+deb http://download.nus.edu.sg/mirror/ubuntu/ bionic-updates main restricted multiverse universe
+deb-src http://download.nus.edu.sg/mirror/ubuntu/ bionic-updates main restricted multiverse universe
+deb http://download.nus.edu.sg/mirror/ubuntu/ bionic-backports main restricted multiverse universe
+deb-src http://download.nus.edu.sg/mirror/ubuntu/ bionic-backports main restricted multiverse universe
+deb http://download.nus.edu.sg/mirror/ubuntu/ bionic-security main restricted multiverse universe
+deb-src http://download.nus.edu.sg/mirror/ubuntu/ bionic-security main restricted multiverse universe
+deb http://archive.canonical.com/ubuntu bionic partner
+deb-src http://archive.canonical.com/ubuntu bionic partner

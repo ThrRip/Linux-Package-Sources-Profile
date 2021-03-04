@@ -1,0 +1,10 @@
+deb http://mirror.mit.edu/ubuntu/ xenial main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ xenial main restricted multiverse universe
+deb http://mirror.mit.edu/ubuntu/ xenial-updates main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ xenial-updates main restricted multiverse universe
+deb http://mirror.mit.edu/ubuntu/ xenial-backports main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ xenial-backports main restricted multiverse universe
+deb http://mirror.mit.edu/ubuntu/ xenial-security main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ xenial-security main restricted multiverse universe
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner

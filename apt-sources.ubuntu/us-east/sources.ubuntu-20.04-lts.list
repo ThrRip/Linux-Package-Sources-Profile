@@ -1,0 +1,10 @@
+deb http://mirror.mit.edu/ubuntu/ focal main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ focal main restricted multiverse universe
+deb http://mirror.mit.edu/ubuntu/ focal-updates main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ focal-updates main restricted multiverse universe
+deb http://mirror.mit.edu/ubuntu/ focal-backports main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ focal-backports main restricted multiverse universe
+deb http://mirror.mit.edu/ubuntu/ focal-security main restricted multiverse universe
+deb-src http://mirror.mit.edu/ubuntu/ focal-security main restricted multiverse universe
+deb http://archive.canonical.com/ubuntu focal partner
+deb-src http://archive.canonical.com/ubuntu focal partner

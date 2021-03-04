@@ -1,0 +1,10 @@
+deb http://mirror01.idc.hinet.net/ubuntu/ xenial main restricted multiverse universe
+deb-src http://mirror01.idc.hinet.net/ubuntu/ xenial main restricted multiverse universe
+deb http://mirror01.idc.hinet.net/ubuntu/ xenial-updates main restricted multiverse universe
+deb-src http://mirror01.idc.hinet.net/ubuntu/ xenial-updates main restricted multiverse universe
+deb http://mirror01.idc.hinet.net/ubuntu/ xenial-backports main restricted multiverse universe
+deb-src http://mirror01.idc.hinet.net/ubuntu/ xenial-backports main restricted multiverse universe
+deb http://mirror01.idc.hinet.net/ubuntu/ xenial-security main restricted multiverse universe
+deb-src http://mirror01.idc.hinet.net/ubuntu/ xenial-security main restricted multiverse universe
+deb http://archive.canonical.com/ubuntu xenial partner
+deb-src http://archive.canonical.com/ubuntu xenial partner
