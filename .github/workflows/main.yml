@@ -27,145 +27,145 @@ jobs:
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.default.epel
-          path: yum-repos.centos-7/baseurl/default/targets/yum-repos.centos-7.baseurl.default.epel
+          path: yum-repos.centos-7/baseurl/default/
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-north.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-north.epel
-          path: yum-repos.centos-7/baseurl/cn-north/targets/yum-repos.centos-7.baseurl.cn-north.epel
+          path: yum-repos.centos-7/baseurl/cn-north/
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-south.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-south.epel
-          path: yum-repos.centos-7/baseurl/cn-south/targets/yum-repos.centos-7.baseurl.cn-south.epel
+          path: yum-repos.centos-7/baseurl/cn-south/
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-west.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-west.epel
-          path: yum-repos.centos-7/baseurl/cn-west/targets/yum-repos.centos-7.baseurl.cn-west.epel
+          path: yum-repos.centos-7/baseurl/cn-west/
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-east.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-east.epel
-          path: yum-repos.centos-7/baseurl/cn-east/targets/yum-repos.centos-7.baseurl.cn-east.epel
+          path: yum-repos.centos-7/baseurl/cn-east/
 
       - name: Deliver yum-repos.centos-7.baseurl.cn-hk.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.cn-hk.epel
-          path: yum-repos.centos-7/baseurl/cn-hk/targets/yum-repos.centos-7.baseurl.cn-hk.epel
+          path: yum-repos.centos-7/baseurl/cn-hk/
 
       - name: Deliver yum-repos.centos-7.baseurl.tw.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.tw.epel
-          path: yum-repos.centos-7/baseurl/tw/targets/yum-repos.centos-7.baseurl.tw.epel
+          path: yum-repos.centos-7/baseurl/tw/
 
       - name: Deliver yum-repos.centos-7.baseurl.jp.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.jp.epel
-          path: yum-repos.centos-7/baseurl/jp/targets/yum-repos.centos-7.baseurl.jp.epel
+          path: yum-repos.centos-7/baseurl/jp/
 
       - name: Deliver yum-repos.centos-7.baseurl.sg.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.sg.epel
-          path: yum-repos.centos-7/baseurl/sg/targets/yum-repos.centos-7.baseurl.sg.epel
+          path: yum-repos.centos-7/baseurl/sg/
 
       - name: Deliver yum-repos.centos-7.baseurl.eu.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.eu.epel
-          path: yum-repos.centos-7/baseurl/eu/targets/yum-repos.centos-7.baseurl.eu.epel
+          path: yum-repos.centos-7/baseurl/eu/
 
       - name: Deliver yum-repos.centos-7.baseurl.us-west.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.us-west.epel
-          path: yum-repos.centos-7/baseurl/us-west/targets/yum-repos.centos-7.baseurl.us-west.epel
+          path: yum-repos.centos-7/baseurl/us-west/
 
       - name: Deliver yum-repos.centos-7.baseurl.us-east.epel Archive File
         uses: actions/upload-artifact@v2
         with:
           name: yum-repos.centos-7.baseurl.us-east.epel
-          path: yum-repos.centos-7/baseurl/us-east/targets/yum-repos.centos-7.baseurl.us-east.epel
+          path: yum-repos.centos-7/baseurl/us-east/
 
       - name: Deliver dnf-repos.centos-8.baseurl.default.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.default.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/default/targets/dnf-repos.centos-8.baseurl.default.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/default/
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-north.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-north.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/cn-north/targets/dnf-repos.centos-8.baseurl.cn-north.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/cn-north/
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-south.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-south.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/cn-south/targets/dnf-repos.centos-8.baseurl.cn-south.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/cn-south/
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-west.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-west.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/cn-west/targets/dnf-repos.centos-8.baseurl.cn-west.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/cn-west/
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-east.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-east.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/cn-east/targets/dnf-repos.centos-8.baseurl.cn-east.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/cn-east/
 
       - name: Deliver dnf-repos.centos-8.baseurl.cn-hk.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.cn-hk.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/cn-hk/targets/dnf-repos.centos-8.baseurl.cn-hk.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/cn-hk/
 
       - name: Deliver dnf-repos.centos-8.baseurl.tw.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.tw.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/tw/targets/dnf-repos.centos-8.baseurl.tw.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/tw/
 
       - name: Deliver dnf-repos.centos-8.baseurl.jp.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.jp.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/jp/targets/dnf-repos.centos-8.baseurl.jp.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/jp/
 
       - name: Deliver dnf-repos.centos-8.baseurl.sg.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.sg.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/sg/targets/dnf-repos.centos-8.baseurl.sg.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/sg/
 
       - name: Deliver dnf-repos.centos-8.baseurl.eu.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.eu.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/eu/targets/dnf-repos.centos-8.baseurl.eu.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/eu/
 
       - name: Deliver dnf-repos.centos-8.baseurl.us-west.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.us-west.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/us-west/targets/dnf-repos.centos-8.baseurl.us-west.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/us-west/
 
       - name: Deliver dnf-repos.centos-8.baseurl.us-east.epel.elrepo Archive File
         uses: actions/upload-artifact@v2
         with:
           name: dnf-repos.centos-8.baseurl.us-east.epel.elrepo
-          path: dnf-repos.centos-8/baseurl/us-east/targets/dnf-repos.centos-8.baseurl.us-east.epel.elrepo
+          path: dnf-repos.centos-8/baseurl/us-east/
 
   deliver-debian:
 
