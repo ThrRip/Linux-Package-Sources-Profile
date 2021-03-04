@@ -29,6 +29,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    needs: checkout
+
     steps:
 
       - name: Build yum-repos.centos-7.baseurl.default Archive File
@@ -218,6 +220,8 @@ jobs:
     name: Deliver CentOS YUM & DNF Repos Archive File
 
     runs-on: ubuntu-latest
+
+    needs: build-centos
 
     steps:
 
@@ -515,6 +519,8 @@ jobs:
 
     runs-on: ubuntu-latest
 
+    needs: checkout
+
     steps:
 
       - name: Deliver sources.debian-8.default List File
@@ -738,6 +744,8 @@ jobs:
     name: Deliver Ubuntu APT Sources List File
 
     runs-on: ubuntu-latest
+
+    needs: checkout
 
     steps:
 
